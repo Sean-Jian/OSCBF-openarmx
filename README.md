@@ -22,3 +22,7 @@ Qijia仿真验证
 OpenArmX实机验证
 
 ![OpenArmX实机验证](./openarmx_oscbf_real.png)
+
+qijiarvizview
+
+![qijiarvizview](./qijia_rviz.jpg)
