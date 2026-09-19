@@ -18,26 +18,7 @@ An open-source reproduction of Operational-Space Control Barrier Functions (OSCB
 
 ## System architecture
 
-```mermaid
-flowchart LR
-    A[Task command<br/>target pose / IK / VR] --> B[Nominal controller<br/>operational-space impedance or joint PD]
-    S[Robot state<br/>q and q_dot] --> B
-    S --> D[Kinematics and dynamics<br/>FK / Jacobian / gravity]
-    G[Collision geometry<br/>robot / body / obstacle] --> E[Distance queries<br/>FCL or bounding primitives]
-    D --> E
-    E --> F[Safety functions<br/>h and h_dot]
-    D --> F
-    F --> H[CBF constraints<br/>obstacle / body / arm-arm / workspace]
-    B --> Q[OSCBF-QP<br/>minimize deviation from nominal torque]
-    H --> Q
-    D --> Q
-    Q --> T[Safe joint torque tau*]
-    T --> P{Execution backend}
-    P -->|Simulation| M[MuJoCo dual-arm model]
-    P -->|Real robot| R[ROS 2 MIT torque controller]
-    M --> S
-    R --> S
-```
+![System architecture](./oscbf-infra.png)
 
 The nominal controller generates the torque required to track the requested motion. In parallel, robot state and collision geometry are converted into second-order CBF inequalities. The QP then finds the closest admissible torque, subject to collision, workspace, and actuator-limit constraints, before sending it to either MuJoCo or the real robot.
 
@@ -75,6 +56,10 @@ The VR example additionally expects the `telegrip` configuration and WebSocket s
 ### OSCBF paper
 
 ![OSCBF paper](./oscbf.png)
+
+### OpenArmX GIF demo
+
+![OpenArmX GIF demo](./74fe068f9b309e296d96%20-small-original.gif)
 
 ### OpenArmX simulation
 

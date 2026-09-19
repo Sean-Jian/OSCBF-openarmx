@@ -18,26 +18,7 @@
 
 ## 系统架构
 
-```mermaid
-flowchart LR
-    A[任务指令<br/>目标位姿 / IK / VR] --> B[标称控制器<br/>操作空间阻抗或关节 PD]
-    S[机器人状态<br/>q 与 q_dot] --> B
-    S --> D[运动学与动力学<br/>正运动学 / 雅可比 / 重力]
-    G[碰撞几何<br/>机械臂 / 本体 / 障碍物] --> E[距离查询<br/>FCL 或包络几何体]
-    D --> E
-    E --> F[安全函数<br/>h 与 h_dot]
-    D --> F
-    F --> H[CBF 约束<br/>障碍物 / 本体 / 双臂 / 工作空间]
-    B --> Q[OSCBF-QP<br/>最小化与标称力矩的偏差]
-    H --> Q
-    D --> Q
-    Q --> T[安全关节力矩 tau*]
-    T --> P{执行后端}
-    P -->|仿真| M[MuJoCo 双臂模型]
-    P -->|实机| R[ROS 2 MIT 力矩控制器]
-    M --> S
-    R --> S
-```
+![系统架构](./oscbf-infra.png)
 
 标称控制器首先根据目标运动生成跟踪力矩；与此同时，系统根据机器人状态和碰撞几何构造二阶 CBF 不等式。QP 在碰撞、工作空间和执行器力矩限制下，求出与标称力矩最接近的安全力矩，并将其发送到 MuJoCo 或真实机器人。
 
@@ -75,6 +56,10 @@ VR 示例还需要 `vr_oscbf_openarmx.py` 中引用的 `telegrip` 配置和 WebS
 ### OSCBF 论文
 
 ![OSCBF 论文](./oscbf.png)
+
+### OpenArmX 动图展示
+
+![OpenArmX 动图展示](./74fe068f9b309e296d96%20-small-original.gif)
 
 ### OpenArmX 仿真验证
 
