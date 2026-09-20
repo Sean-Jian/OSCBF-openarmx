@@ -57,9 +57,9 @@ The VR example additionally expects the `telegrip` configuration and WebSocket s
 
 ![OSCBF paper](./oscbf.png)
 
-### OpenArmX GIF demo
+### ReBot GIF demo
 
-![OpenArmX GIF demo](./74fe068f9b309e296d96%20-small-original.gif)
+![ReBot GIF demo](./74fe068f9b309e296d96%20-small-original.gif)
 
 ### OpenArmX simulation
 

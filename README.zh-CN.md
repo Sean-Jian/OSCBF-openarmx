@@ -57,9 +57,9 @@ VR 示例还需要 `vr_oscbf_openarmx.py` 中引用的 `telegrip` 配置和 WebS
 
 ![OSCBF 论文](./oscbf.png)
 
-### OpenArmX 动图展示
+### ReBot 动图展示
 
-![OpenArmX 动图展示](./74fe068f9b309e296d96%20-small-original.gif)
+![ReBot 动图展示](./74fe068f9b309e296d96%20-small-original.gif)
 
 ### OpenArmX 仿真验证
 
