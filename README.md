@@ -61,6 +61,10 @@ The VR example additionally expects the `telegrip` configuration and WebSocket s
 
 ![ReBot GIF demo](./74fe068f9b309e296d96%20-small-original.gif)
 
+### OpenArmX real-robot validation
+
+![OpenArmX real-robot validation](./openarmx-oscbf-gif.gif)
+
 ### OpenArmX simulation
 
 ![OpenArmX simulation](./openarmx_mujoco_oscbf.png)
@@ -68,10 +72,6 @@ The VR example additionally expects the `telegrip` configuration and WebSocket s
 ### Qijia simulation
 
 ![Qijia simulation](./qijia_mujoco_oscbf.png)
-
-### OpenArmX real-robot validation
-
-![OpenArmX real-robot validation](./openarmx_oscbf_real.png)
 
 ### Qijia RViz view
 
